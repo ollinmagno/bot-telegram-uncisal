@@ -1,80 +1,96 @@
 package br.com.bot.uncisal.model;
 
-public class Pergunta {
-	private String nome;
-	private Alternativa[] alternativas;
-	private Alternativa alternativaCorreta;
+import java.util.List;
 
-	public Pergunta(String nome, Alternativa[] alternativas, Alternativa alternativaCorreta) {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "pergunta")
+public class Pergunta {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
+	@Column(name = "nome")
+	private String nome;
+	
+	@OneToMany()
+	private List<Alternativa> alternativas;
+//	private Map<String, List<Alternativa>> alternativas = new HashMap<String, List<Alternativa>>();
+	
+	
+	
+	
+	public Pergunta(long id, String nome, List<Alternativa> alternativas) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.alternativas = alternativas;
-		this.alternativaCorreta = alternativaCorreta;
 	}
-
-	public boolean verificarRespostaCorreta(Alternativa alternativa) {
-		if (alternativa.getId() == this.alternativaCorreta.getId()) {
-			System.out.println("Acertou");
-			return true;
-		}
-
-		System.out.println("Errou");
-		return false;
-
+	public long getId() {
+		return id;
 	}
-
+	public void setId(long id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Alternativa[] getAlternativas() {
+	public List<Alternativa> getAlternativas() {
 		return alternativas;
 	}
-
-	public void setAlternativas(Alternativa[] alternativas) {
+	public void setAlternativas(List<Alternativa> alternativas) {
 		this.alternativas = alternativas;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
-	public Alternativa getAlternativaCorreta() {
-		return alternativaCorreta;
-	}
+	
 
-	public void setAlternativaCorreta(Alternativa alternativaCorreta) {
-		this.alternativaCorreta = alternativaCorreta;
-	}
-
-	public String getPerguntaString() {
-		String str = this.nome;
-		for (int i = 0; i < alternativas.length; i++) {
-			Alternativa alternativa = alternativas[i];
-			char letra = ' ';
-			switch (i) {
-			case 0:
-				letra = 'a';
-				break;
-			case 1:
-				letra = 'b';
-				break;
-			case 2:
-				letra = 'c';
-				break;
-			case 3:
-				letra = 'd';
-				break;
-			case 4:
-				letra = 'e';
-				break;
-			default:
-
-			}
-		str += "\n" + letra + ") " + alternativa.getDescricao();
- 		}
-		
-		return str;
-
-	}
+//	public String getPerguntaString() {
+//		String str = this.nome;
+//		for (int i = 0; i < alternativas.length; i++) {
+//			Alternativa alternativa = alternativas[i];
+//			char letra = ' ';
+//			switch (i) {
+//			case 0:
+//				letra = 'a';
+//				break;
+//			case 1:
+//				letra = 'b';
+//				break;
+//			case 2:
+//				letra = 'c';
+//				break;
+//			case 3:
+//				letra = 'd';
+//				break;
+//			case 4:
+//				letra = 'e';
+//				break;
+//			default:
+//
+//			}
+//		str += "\n" + letra + ") " + alternativa.getDescricao();
+// 		}
+//		
+//		return str;
+//
+//	}
 }

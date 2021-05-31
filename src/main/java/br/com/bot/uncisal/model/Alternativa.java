@@ -1,9 +1,19 @@
 package br.com.bot.uncisal.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "alternativa")
 public class Alternativa {
-	private int id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String descricao;
-	
 	
 	
 	public Alternativa(int id) {
@@ -17,11 +27,11 @@ public class Alternativa {
 		this.descricao = descricao;
 	}
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

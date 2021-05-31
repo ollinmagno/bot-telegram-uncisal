@@ -28,11 +28,11 @@ public class MyAmazingBot extends TelegramLongPollingBot {
 		// We check if the update has a message and the message has text
 		if (update.hasMessage() && update.getMessage().hasText()) {
 //        	
-			Alternativa[] alternativas = new Alternativa[] { new Alternativa(1, "Bill Gates"),
-					new Alternativa(2, "Steve Jobs"), new Alternativa(3, "Allan turing"),
-					new Alternativa(4, "Linus Torvalds"), new Alternativa(5, "Von Neumann") };
-			Alternativa correta = new Alternativa(4, "Linus Torvalds");
-			Pergunta pergunta = new Pergunta("Quem criou o linux? ", alternativas, correta);
+//			Alternativa[] alternativas = new Alternativa[] { new Alternativa(1, "Bill Gates"),
+//					new Alternativa(2, "Steve Jobs"), new Alternativa(3, "Allan turing"),
+//					new Alternativa(4, "Linus Torvalds"), new Alternativa(5, "Von Neumann") };
+//			Alternativa correta = new Alternativa(4, "Linus Torvalds");
+//			Pergunta pergunta = new Pergunta("Quem criou o linux? ", alternativas, correta);
 			System.out.println(update.getMessage().getFrom().toString());
 
 			// Set variables
@@ -53,7 +53,7 @@ public class MyAmazingBot extends TelegramLongPollingBot {
 					public void run() {
 
 
-						message.setText(pergunta.getPerguntaString());
+//						message.setText(pergunta.getPerguntaString());
 
 						executarMensagem(message);
 						
@@ -79,52 +79,52 @@ public class MyAmazingBot extends TelegramLongPollingBot {
 				
 				
 			}
-			if (message_text.equals("/a")) {
-				if(pergunta.verificarRespostaCorreta(new Alternativa(1))) {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
-					System.out.println("entrou aq");
-				}
-				else {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
-				}
-				executarMensagem(message);
-			}
-			if (message_text.equals("/b")) {
-				if(pergunta.verificarRespostaCorreta(new Alternativa(2))) {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
-				}
-				else {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
-				}
-				executarMensagem(message);
-			}
-			if (message_text.equals("/c")) {
-				if(pergunta.verificarRespostaCorreta(new Alternativa(3))) {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
-				}
-				else {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
-				}
-				executarMensagem(message);
-			}
-			if (message_text.equals("/d")) {
-				if(pergunta.verificarRespostaCorreta(new Alternativa(4))) {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
-				}
-				else {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
-				}
-				executarMensagem(message);
-			}
-			if (message_text.equals("/e")) {
-				if(pergunta.verificarRespostaCorreta(new Alternativa(5))) {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos"); 
-				}
-				else {
-					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
-				}
-				executarMensagem(message);
-			}
+//			if (message_text.equals("/a")) {
+//				if(pergunta.verificarRespostaCorreta(new Alternativa(1))) {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
+//					System.out.println("entrou aq");
+//				}
+//				else {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
+//				}
+//				executarMensagem(message);
+//			}
+//			if (message_text.equals("/b")) {
+//				if(pergunta.verificarRespostaCorreta(new Alternativa(2))) {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
+//				}
+//				else {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
+//				}
+//				executarMensagem(message);
+//			}
+//			if (message_text.equals("/c")) {
+//				if(pergunta.verificarRespostaCorreta(new Alternativa(3))) {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
+//				}
+//				else {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
+//				}
+//				executarMensagem(message);
+//			}
+//			if (message_text.equals("/d")) {
+//				if(pergunta.verificarRespostaCorreta(new Alternativa(4))) {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos");
+//				}
+//				else {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
+//				}
+//				executarMensagem(message);
+//			}
+//			if (message_text.equals("/e")) {
+//				if(pergunta.verificarRespostaCorreta(new Alternativa(5))) {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " acertou e ganhou 10 pontos"); 
+//				}
+//				else {
+//					message.setText("O(a) @" + update.getMessage().getFrom().getUserName() + " errou");
+//				}
+//				executarMensagem(message);
+//			}
 		}
 	}
 
